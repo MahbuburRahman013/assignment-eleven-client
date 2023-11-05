@@ -7,27 +7,32 @@ import AssignmentCard from "./AssignmentCard";
 const AllAssignment = () => {
     const [allAssignment, setAllAssignment] = useState([]);
     const [isTrue, setIsTrue] = useState(true)
+    const [difficulty, setDifficulty] = useState({});
 
 
     useEffect(() => {
-        axios.get('http://localhost:5000/allAssignment')
+        axios.get(`http://localhost:5000/allAssignment`,{params: { query: difficulty }})
             .then(res => {
                 setAllAssignment(res.data)
                 setIsTrue(false)
             })
 
-    }, [])
+    }, [difficulty])
 
-
+    
     return (
         <div className="bg-gray-100">
             <div className="flex justify-center pt-7">
-                <select className="select select-error w-full max-w-xs">
-                    <option disabled selected>What is the best headless CMS</option>
-                    <option>Strapi</option>
-                    <option>Ghost</option>
-                    <option>Netlify CMS</option>
-                    <option>Sanity</option>
+                <select 
+                className="select select-error w-full max-w-xs"
+                id="difficulty"
+                onChange={(e) => setDifficulty(e.target.value)}
+                >
+                    <option value="">All Types</option>
+                    <option value='easy'>Easy</option>
+                    <option value='hard'>Hard</option>
+                    <option value='medium'>Medium</option>
+            
                 </select>
             </div>
 
