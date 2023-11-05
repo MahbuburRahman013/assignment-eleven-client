@@ -1,6 +1,8 @@
 import { useState } from "react";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import useAuth from "../hooks/useAuth";
+import {axios} from 'axios'
 
 const CreateAssignment = () => {
     const [title, setTitle] = useState('');
@@ -9,9 +11,13 @@ const CreateAssignment = () => {
     const [thumbnailURL, setThumbnailURL] = useState('');
     const [difficulty, setDifficulty] = useState('easy');
     const [dueDate, setDueDate] = useState(null);
+    const {user} = useAuth()
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
+        const assignment = {title,description,marks,thumbnailURL,difficulty,dueDate, user: user?.email};
+        axios.post('', assignment)
+        .then(res=> console.log(res.data))
 
         
     };
@@ -28,6 +34,7 @@ const CreateAssignment = () => {
                     <input
                         type="text"
                         id="title"
+                        required
                         className="w-full px-3 backdrop-blur-sm bg-white/50 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
@@ -40,6 +47,7 @@ const CreateAssignment = () => {
                     </label>
                     <textarea
                         id="description"
+                        required
                         className="w-full px-3 py-2 border rounded-md focus:outline-none backdrop-blur-sm bg-white/50 focus:ring focus:border-blue-300"
                         rows="4"
                         value={description}
@@ -54,6 +62,7 @@ const CreateAssignment = () => {
                     <input
                         type="number"
                         id="marks"
+                        required
                         className="w-full px-3 py-2 border rounded-md focus:outline-none backdrop-blur-sm bg-white/50 focus:ring focus:border-blue-300"
                         value={marks}
                         onChange={(e) => setMarks(e.target.value)}
@@ -67,6 +76,7 @@ const CreateAssignment = () => {
                     <input
                         type="text"
                         id="thumbnailURL"
+                        required
                         className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring backdrop-blur-sm bg-white/50 focus:border-blue-300"
                         value={thumbnailURL}
                         onChange={(e) => setThumbnailURL(e.target.value)}
@@ -95,6 +105,7 @@ const CreateAssignment = () => {
                     </label>
                     <DatePicker
                         id="dueDate"
+                        required
                         className="w-full px-3 py-2 border rounded-md focus:outline-none backdrop-blur-sm bg-white/50 focus:ring focus:border-blue-300"
                         selected={dueDate}
                         onChange={(date) => setDueDate(date)}
