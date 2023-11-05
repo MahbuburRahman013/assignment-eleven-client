@@ -2,7 +2,7 @@
 
 const FaqSection = () => {
     return (
-        <div className="py-10 flex items-center container mx-auto">
+        <div className="py-10 mb-20 flex items-center container mx-auto">
             <div>
                 <img src="https://i.ibb.co/kcT22Nf/image2-removebg-preview.png" alt="" />
             </div>

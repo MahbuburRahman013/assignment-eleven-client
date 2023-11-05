@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 const Footer = () => {
     return (
         <div>
-            <footer className="bg-gray-900 border-t-4 border-red-800 text-white mt-16 py-10">
+            <footer className="bg-gray-900 border-t-4 border-red-800 text-white py-10">
                 <div className="container mx-auto flex justify-between items-center">
                     <div className="footer-logo">
                         <img src="https://i.ibb.co/wrq6wjT/181620731-online-course-with-small-group-coaching-for-study-skills-logo-design-1-removebg-preview.png" alt="Your Website Logo" className="w-36" />
