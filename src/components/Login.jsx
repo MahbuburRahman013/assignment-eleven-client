@@ -16,7 +16,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[url('https://i.ibb.co/qJ3Nhpf/daf61862ec45445931d2216778e92af8.jpg')] bg-cover bg-no-repeat">
+    <div className="min-h-screen flex items-center justify-center bg-[url('https://i.ibb.co/MGWmD8c/images-1.jpg')] bg-cover bg-no-repeat">
       <div className="backdrop-blur-sm bg-white/50 p-8 rounded-lg shadow-lg w-96">
         <h2 className="text-3xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-pink-600 to-blue-800 mb-4">Login</h2>
 

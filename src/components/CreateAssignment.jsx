@@ -17,7 +17,8 @@ const CreateAssignment = () => {
     };
 
     return (
-        <div className="max-w-md mx-auto p-4">
+        <div className="bg-[url('https://i.ibb.co/MGWmD8c/images-1.jpg')] py-10 bg-cover bg-no-repeat">
+            <div className="max-w-md mx-auto backdrop-blur-sm bg-white/50 px-10 py-5 rounded-md">
             <h2 className="text-3xl font-semibold mb-4">Assignment Form</h2>
             <form onSubmit={handleFormSubmit}>
                 <div className="mb-4">
@@ -27,7 +28,7 @@ const CreateAssignment = () => {
                     <input
                         type="text"
                         id="title"
-                        className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                        className="w-full px-3 backdrop-blur-sm bg-white/50 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                     />
@@ -39,7 +40,7 @@ const CreateAssignment = () => {
                     </label>
                     <textarea
                         id="description"
-                        className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                        className="w-full px-3 py-2 border rounded-md focus:outline-none backdrop-blur-sm bg-white/50 focus:ring focus:border-blue-300"
                         rows="4"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
@@ -53,7 +54,7 @@ const CreateAssignment = () => {
                     <input
                         type="number"
                         id="marks"
-                        className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                        className="w-full px-3 py-2 border rounded-md focus:outline-none backdrop-blur-sm bg-white/50 focus:ring focus:border-blue-300"
                         value={marks}
                         onChange={(e) => setMarks(e.target.value)}
                     />
@@ -66,7 +67,7 @@ const CreateAssignment = () => {
                     <input
                         type="text"
                         id="thumbnailURL"
-                        className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                        className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring backdrop-blur-sm bg-white/50 focus:border-blue-300"
                         value={thumbnailURL}
                         onChange={(e) => setThumbnailURL(e.target.value)}
                     />
@@ -78,7 +79,7 @@ const CreateAssignment = () => {
                     </label>
                     <select
                         id="difficulty"
-                        className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                        className="w-full px-3 py-2 border rounded-md focus:outline-none backdrop-blur-sm bg-white/50 focus:ring focus:border-blue-300"
                         value={difficulty}
                         onChange={(e) => setDifficulty(e.target.value)}
                     >
@@ -94,7 +95,7 @@ const CreateAssignment = () => {
                     </label>
                     <DatePicker
                         id="dueDate"
-                        className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                        className="w-full px-3 py-2 border rounded-md focus:outline-none backdrop-blur-sm bg-white/50 focus:ring focus:border-blue-300"
                         selected={dueDate}
                         onChange={(date) => setDueDate(date)}
                         dateFormat="dd/MM/yyyy"
@@ -110,6 +111,7 @@ const CreateAssignment = () => {
                     </button>
                 </div>
             </form>
+        </div>
         </div>
     );
 };
