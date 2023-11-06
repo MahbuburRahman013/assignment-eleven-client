@@ -4,6 +4,7 @@ import CreateAssignment from '../components/CreateAssignment';
 import Home from '../components/Home';
 import Login from '../components/Login';
 import Registration from '../components/Registration';
+import UpdateAssignment from '../components/UpdateAssignment';
 import MainLayout from '../Layout/MainLayout';
 
 
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
         {
           path:'/all-assignment',
           element:<AllAssignment></AllAssignment>
+        },
+        {
+          path:'/update-assignment',
+          element:<UpdateAssignment></UpdateAssignment>
         }
       ]
     },
