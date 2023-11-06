@@ -19,6 +19,17 @@ const AllAssignment = () => {
 
     }, [difficulty])
 
+    const handleDeleteAssignment = id =>{
+        axios.delete(`http://localhost:5000/delete-assignment/${id}`,)
+        .then(res=>{
+            if(res.data.deletedCount > 0){
+                const remaining = allAssignment.filter(assignment => assignment._id !== id);
+                alert('delete assignment')
+                setAllAssignment(remaining)
+            }
+        })
+    }
+
     
     return (
         <div className="bg-gray-100">
@@ -39,7 +50,7 @@ const AllAssignment = () => {
             {isTrue ? <div className="flex justify-center items-center h-screen"><span className="loading loading-spinner loading-lg"></span></div> :
                 <div className="grid grid-cols-3 gap-10 container mx-auto py-8">
                     {
-                        allAssignment.map(assignment => <AssignmentCard assignment={assignment} key={assignment._id}></AssignmentCard>)
+                        allAssignment.map(assignment => <AssignmentCard handleDeleteAssignment={handleDeleteAssignment} assignment={assignment} key={assignment._id}></AssignmentCard>)
                     }
                 </div>
             }
