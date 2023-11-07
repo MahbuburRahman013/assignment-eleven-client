@@ -10,6 +10,7 @@ const Modal = ({loadedData2}) => {
     // const [view, setView] = useState('')
     const {user} = useAuth();
     const submittedUser = user?.email;
+    const submittedUserName = user?.displayName;
     
 
     const handleSubmit2 = (e) => {
@@ -19,7 +20,7 @@ const Modal = ({loadedData2}) => {
         const form = e.target;
         const file = form.file.value;
         const note = form.note.value;
-        const allData = {...loadedData2,file,note,submittedUser,status:'submitted'};
+        const allData = {...loadedData2,file,note,submittedUser,submittedUserName, status:'submitted'};
         console.log(file)
        axios.post('http://localhost:5000/submitted-assignment',{allData})
        .then(res=>{

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {useLoaderData} from 'react-router-dom'
  
 
@@ -9,7 +10,16 @@ const SubmitModal = () => {
 
 const handleSubmit = e =>{
     e.preventDefault()
-    console.log(_id)
+    const form = e.target;
+    const givenMarks = form.number.value;
+    const feedback = form.feedback.value;
+
+    axios.patch(`http://localhost:5000/marking-assignment/${_id}`, {status:'completed',givenMarks,feedback})
+    .then(res=>{
+        if(res.data){
+            alert('given number completed')
+        }
+    })
 }
 
     return (
