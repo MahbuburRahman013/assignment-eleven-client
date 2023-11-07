@@ -11,6 +11,11 @@ const DetailsAssignment = () => {
     const [isTrue, setIsTrue] = useState(true);
     const { thumbnailURL, title, difficulty, dueDate, description, marks, user } = loadedData;
 
+    const loadedData2 = {...loadedData};
+    delete loadedData2._id;
+    
+
+
     console.log(id)
     useEffect(() => {
         axios.get(`http://localhost:5000/assignment/${id}`)
@@ -64,7 +69,7 @@ const DetailsAssignment = () => {
                             </button>
                             </div>
                             
-                               <Modal></Modal>
+                               <Modal loadedData2={loadedData2}></Modal>
                                
                             
                         </div>

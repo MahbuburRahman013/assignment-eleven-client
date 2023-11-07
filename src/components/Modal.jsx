@@ -1,11 +1,15 @@
 // import { useState } from "react";
 
+import axios from "axios";
+import useAuth from "../hooks/useAuth";
 
-const Modal = () => { 
+
+const Modal = ({loadedData2}) => { 
     // const [pdfLink, setPdfLink] = useState('');
     // const [quickNote, setQuickNote] = useState('');
     // const [view, setView] = useState('')
-
+    const {user} = useAuth();
+    const submittedUser = user?.email;
     
 
     const handleSubmit2 = (e) => {
@@ -15,8 +19,14 @@ const Modal = () => {
         const form = e.target;
         const file = form.file.value;
         const note = form.note.value;
-        console.log( note,file)
+        const allData = {...loadedData2,file,note,submittedUser};
 
+       axios.post('http://localhost:5000/submitted-assignment',{allData})
+       .then(res=>{
+        if(res.data.acknowledged){
+            alert('submitted complete')
+        }
+       })
 
 
     }
