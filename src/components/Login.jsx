@@ -1,23 +1,30 @@
 import { useState } from "react";
 import useAuth from "../hooks/useAuth";
+import {useLocation , useNavigate} from 'react-router-dom';
 
 
 const Login = () => {
     const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const {signInUser, googleLogin} = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
+  
 
   const handleLogin = (e) => {
         e.preventDefault();
        signInUser(email,password)
        .then(result=>{
-        console.log(result.user)
+        
            if(result.user){
             alert('login successfully!')
+            location.state && navigate(location.state);
+            
+              
            }
        })
        .catch(error=>{
-        console.log(error.message)
+        
             alert(error.message);
        })
   };
@@ -27,8 +34,10 @@ const Login = () => {
   const handleGoogleLogin = () => {
         googleLogin()
         .then(result=>{
-           if(result.message){
+           if(result.user){
             alert('sing in google')
+            location.state && navigate(location.state);
+            
            }
         })
         .catch(error=>{

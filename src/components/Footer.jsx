@@ -12,11 +12,10 @@ const Footer = () => {
                     <div className="footer-navigation ">
                         <ul className="flex mr-24 gap-8">
                             <li><Link to="/" className="hover:text-blue-500">Home</Link></li>
-                            <li><Link to="/about" className="hover:text-blue-500">About Us</Link></li>
-                            <li><Link to="/features" className="hover:text-blue-500">Features</Link></li>
-                            <li><Link to="/pricing" className="hover:text-blue-500">Pricing</Link></li>
-                            <li><Link to="/faq" className="hover:text-blue-500">FAQ</Link></li>
-                            <li><Link to="/contact" className="hover:text-blue-500">Contact Us</Link></li>
+                            <li><Link to="/all-assignment" className="hover:text-blue-500">All Assignment</Link></li>
+                            <li><Link to="/create-assignment" className="hover:text-blue-500">Create Assignment</Link></li>
+                            <li><Link to="/my-assignment" className="hover:text-blue-500">My Assignment</Link></li>
+                            <li><Link to="/submitted-assignment" className="hover:text-blue-500">Submitted Assignment</Link></li>
                         </ul>
                     </div>
                     <div className="footer-social">

@@ -3,7 +3,7 @@ import useAuth from "../hooks/useAuth";
 import { updateProfile } from "firebase/auth";
 import { auth } from "../firebase.config";
 
-const Registration = () => {
+const Registration = (e) => {
     const [name, setName] = useState('');
     const [photoURL, setPhotoURL] = useState('');
     const [email, setEmail] = useState('');
@@ -28,6 +28,7 @@ const Registration = () => {
                 })
                 .then(()=>{
                    alert('user create')
+                   window.location.reload()
                 })
                 .then(error=>{
                       alert(error.message)

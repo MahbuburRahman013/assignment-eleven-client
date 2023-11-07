@@ -1,18 +1,9 @@
-import { useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 const AssignmentCard = ({ assignment, handleDeleteAssignment }) => {
 
     const { thumbnailURL, title, marks, difficulty, _id } = assignment;
-    const navigate = useNavigate();
-
-    const handleNavigate = id => {
-        navigate('/update-assignment', { state: { id: id } })
-
-    }
-    const handleNavigate2 = id => {
-        navigate('/assignment-details', { state: { id: id } })
-
-    }
+   
 
     return (
         <div className="bg-white rounded-lg shadow-md p-4 mb-4">
@@ -34,17 +25,21 @@ const AssignmentCard = ({ assignment, handleDeleteAssignment }) => {
 
 
 
-            <button onClick={() => handleNavigate2(_id)} className="bg-[#607d8b] text-white px-4 py-2 mt-4 rounded hover:bg-[#3b4d57]">
+            <Link to={`/assignment-details/${_id}`}>
+            <button className="bg-[#607d8b] text-white px-4 py-2 mt-4 rounded hover:bg-[#3b4d57]">
                 View Assignment
             </button>
+            </Link>
 
 
             <div className="flex mt-4 space-x-2">
 
 
-                <button onClick={() => handleNavigate(_id)} className="bg-[#739072] text-white px-4 py-2 rounded hover:bg-[#3d593c]">
+                <Link to={`/update-assignment/${_id}`}>
+                <button  className="bg-[#739072] text-white px-4 py-2 rounded hover:bg-[#3d593c]">
                     Update Assignment
                 </button>
+                </Link>
 
 
 

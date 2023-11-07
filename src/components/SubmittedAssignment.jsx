@@ -19,7 +19,7 @@ useEffect(()=>{
     
   
     return (
-      <div>
+      <div className="min-h-[50vh]">
             {
                 isLoading?<div className="flex justify-center items-center h-screen"><span className="loading loading-spinner loading-lg"></span></div>:
                 <div>

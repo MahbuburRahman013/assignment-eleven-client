@@ -1,23 +1,26 @@
 import axios from "axios";
+import { useContext } from "react";
 import { useEffect, useState } from "react";
+import { ContextProvider } from "../authProvider/AuthProvider";
 import MySubCard from "./MySubCard";
 
 
 const MySubmitted = () => {
     const [loadedData, setLoadedData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const {user} = useContext(ContextProvider);
 
     useEffect(()=>{
-        axios.get('http://localhost:5000/my-assignment')
+        axios.get('http://localhost:5000/my-assignment',{params:{email:user.email}})
         .then(res=>{
             setLoadedData(res.data);
             setIsLoading(false);
         })
    
-   },[])
+   },[user.email])
 
     return (
-        <div className="container mx-auto my-10">
+        <div className="container min-h-[50vh] mx-auto my-10">
             {
                 isLoading? <div className="flex justify-center items-center h-screen"><span className="loading loading-spinner loading-lg"></span></div>:
                 <div className="grid grid-cols-3">
@@ -26,6 +29,7 @@ const MySubmitted = () => {
                     }
                 </div>
             }
+            
         </div>
     );
 };

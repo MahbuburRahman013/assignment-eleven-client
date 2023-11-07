@@ -2,12 +2,14 @@ import { useState } from "react";
 import { useEffect } from "react";
 import axios from 'axios'
 import AssignmentCard from "./AssignmentCard";
+import useAuth from "../hooks/useAuth";
 
 
 const AllAssignment = () => {
     const [allAssignment, setAllAssignment] = useState([]);
     const [isTrue, setIsTrue] = useState(true)
     const [difficulty, setDifficulty] = useState({});
+    const {user} = useAuth();
 
 
     useEffect(() => {
@@ -20,13 +22,17 @@ const AllAssignment = () => {
     }, [difficulty])
 
     const handleDeleteAssignment = id =>{
-        axios.delete(`http://localhost:5000/delete-assignment/${id}`)
+        
+        axios.delete(`http://localhost:5000/delete-assignment/${id}`,{params:{query: user?.email}})
         .then(res=>{
             if(res.data.deletedCount > 0){
                 const remaining = allAssignment.filter(assignment => assignment._id !== id);
                 alert('delete assignment')
                 setAllAssignment(remaining)
                 setIsTrue(false)
+            }
+            else{
+                alert('You are not able to delete')
             }
         })
     }

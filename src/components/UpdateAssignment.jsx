@@ -1,27 +1,18 @@
 import axios from 'axios';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom'
+import {useLoaderData , useNavigate} from 'react-router-dom'
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { useState } from 'react';
 
 const UpdateAssignment = () => {
-
-    const { state } = useLocation();
-    const { id } = state;
-    const [assignment, setAllAssignment] = useState([]);
-    const { title: titleUp, description: descriptionUp, marks: marksUp, thumbnailURL: thumbnailURLUp, difficulty, dueDate: dueDateUp, user, _id } = assignment;
-    const [dueDate,setDueDate] = useState(dueDateUp)
-    const [difficult,setDifficult] = useState(difficulty)
+     const assignment = useLoaderData()
+    
+    const { title: titleUp, description: descriptionUp, marks: marksUp, thumbnailURL: thumbnailURLUp, difficulty, user, _id } = assignment;
+    
+    const navigate = useNavigate()
+    const [startDate, setStartDate] = useState(new Date()); 
 
    
-
-    useEffect(() => {
-        axios.get(`http://localhost:5000/assignment/${id}`)
-            .then(res => {
-                setAllAssignment(res.data);
-            })
-    }, [id])
 
     const handleUpdateAssignment = e => {
         e.preventDefault()
@@ -37,7 +28,10 @@ const UpdateAssignment = () => {
 
         axios.put(`http://localhost:5000/update-assignment/${_id}`, { updateInfo })
             .then(res => {
-                console.log(res.data)
+                if(res.data.modifiedCount > 0){
+                    alert('update successfully!');
+                    navigate('/all-assignment')
+                }
             })
     }
 
@@ -112,8 +106,7 @@ const UpdateAssignment = () => {
                             id="difficulty"
                             className="w-full px-3 py-2 border rounded-md focus:outline-none backdrop-blur-sm bg-white/50 focus:ring focus:border-blue-300"
                             name='difficulty'
-                            onChange={(e) => setDifficult(e.target.value)}
-                            defaultValue={difficult}
+                            defaultValue={difficulty}
                         >
                             <option value="easy">Easy</option>
                             <option value="medium">Medium</option>
@@ -129,8 +122,8 @@ const UpdateAssignment = () => {
                             id="dueDate"
                             required
                             className="w-full px-3 py-2 border rounded-md focus:outline-none backdrop-blur-sm bg-white/50 focus:ring focus:border-blue-300"
-                            selected={dueDate}
-                            onChange={(date) => setDueDate(date)}
+                            selected={startDate}
+                            onChange={(date) => setStartDate(date)}
                             dateFormat="dd/MM/yyyy"
                         />
                     </div>
