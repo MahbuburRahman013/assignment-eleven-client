@@ -15,12 +15,12 @@ const Modal = ({loadedData2}) => {
     const handleSubmit2 = (e) => {
         e.preventDefault();
        
-
+        
         const form = e.target;
         const file = form.file.value;
         const note = form.note.value;
-        const allData = {...loadedData2,file,note,submittedUser};
-
+        const allData = {...loadedData2,file,note,submittedUser,status:'submitted'};
+        console.log(file)
        axios.post('http://localhost:5000/submitted-assignment',{allData})
        .then(res=>{
         if(res.data.acknowledged){
