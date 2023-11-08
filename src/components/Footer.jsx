@@ -10,7 +10,7 @@ const Footer = () => {
                         <p className="uppercase text-3xl pl-5 font-bold text-[#7495b4]">Study<span className="text-[#f9af32]">Hub</span></p>
                     </div>
                     <div className="footer-navigation ">
-                        <ul className="flex mr-24 gap-8">
+                        <ul className="flex flex-wrap lg:mr-24 gap-8">
                             <li><Link to="/" className="hover:text-blue-500">Home</Link></li>
                             <li><Link to="/all-assignment" className="hover:text-blue-500">All Assignment</Link></li>
                             <li><Link to="/create-assignment" className="hover:text-blue-500">Create Assignment</Link></li>

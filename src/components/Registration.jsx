@@ -3,7 +3,7 @@ import useAuth from "../hooks/useAuth";
 import { updateProfile } from "firebase/auth";
 import { auth } from "../firebase.config";
 
-const Registration = (e) => {
+const Registration = () => {
     const [name, setName] = useState('');
     const [photoURL, setPhotoURL] = useState('');
     const [email, setEmail] = useState('');
@@ -44,7 +44,7 @@ const Registration = (e) => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[url('https://i.ibb.co/MGWmD8c/images-1.jpg')] bg-cover bg-no-repeat">
         <form onSubmit={handleRegistration}>
-        <div className="backdrop-blur-sm bg-white/50 p-8 rounded-lg shadow-lg w-96">
+        <div className="backdrop-blur-sm bg-white/50 p-8 rounded-lg shadow-lg lg:w-96">
           <h2 className="text-3xl text-center font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-pink-600 to-blue-800">Register</h2>
   
           <div className="mb-4">

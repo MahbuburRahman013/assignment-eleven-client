@@ -7,7 +7,7 @@ const SubmittedCard = ({data}) => {
 
     return (
         <div>
-            <div className="w-1/2 mx-auto bg-[#b2cade] my-7 rounded py-3 px-5">
+            <div className="lg:w-1/2  mx-auto bg-[#b2cade] my-7 rounded py-3 px-5">
                 <h1 className="text-2xl font-bold text-gray-700">{title}</h1>
                 <p className="font-semibold my-1">Assignment marks: {marks}</p>
                 <h1 className="font-semibold text-xl my-2">Examinee name: {submittedUserName}</h1>

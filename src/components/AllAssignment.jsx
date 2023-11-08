@@ -55,7 +55,7 @@ const AllAssignment = () => {
             </div>
 
             {isTrue ? <div className="flex justify-center items-center h-screen"><span className="loading loading-spinner loading-lg"></span></div> :
-                <div className="grid grid-cols-3 gap-10 container mx-auto py-8">
+                <div className="grid grid-cols-1 px-2  lg:grid-cols-3 gap-10 container mx-auto py-8">
                     {
                         allAssignment.map(assignment => <AssignmentCard handleDeleteAssignment={handleDeleteAssignment}    assignment={assignment} key={assignment._id}></AssignmentCard>)
                     }

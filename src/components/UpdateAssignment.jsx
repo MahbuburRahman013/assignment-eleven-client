@@ -38,7 +38,7 @@ const UpdateAssignment = () => {
 
     return (
         <div className="bg-[url('https://i.ibb.co/MGWmD8c/images-1.jpg')] py-10 bg-cover bg-no-repeat">
-            <div className="max-w-md mx-auto backdrop-blur-sm bg-white/50 px-10 py-5 rounded-md">
+            <div className="max-w-md  mx-auto backdrop-blur-sm bg-white/50 px-3 lg:px-10 py-5 rounded-md">
                 <h2 className="text-3xl font-semibold mb-4">Update Assignment Form</h2>
                 <form onSubmit={handleUpdateAssignment}>
                     <div className="mb-4">

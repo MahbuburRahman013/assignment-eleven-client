@@ -23,7 +23,7 @@ const MySubmitted = () => {
         <div className="container min-h-[50vh] mx-auto my-10">
             {
                 isLoading? <div className="flex justify-center items-center h-screen"><span className="loading loading-spinner loading-lg"></span></div>:
-                <div className="grid grid-cols-3">
+                <div className="grid grid-cols-1 lg:grid-cols-3">
                     {
                         loadedData.map(data=> <MySubCard data={data} key={data._id}></MySubCard>)
                     }
