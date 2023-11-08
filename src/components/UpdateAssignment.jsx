@@ -3,6 +3,7 @@ import {useLoaderData , useNavigate} from 'react-router-dom'
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 
 const UpdateAssignment = () => {
      const assignment = useLoaderData()
@@ -29,7 +30,7 @@ const UpdateAssignment = () => {
         axios.put(`http://localhost:5000/update-assignment/${_id}`, { updateInfo })
             .then(res => {
                 if(res.data.modifiedCount > 0){
-                    alert('update successfully!');
+                    toast.success('update successfully!');
                     navigate('/all-assignment')
                 }
             })
@@ -137,6 +138,7 @@ const UpdateAssignment = () => {
                         </button>
                     </div>
                 </form>
+                <Toaster></Toaster>
             </div>
         </div>
     );

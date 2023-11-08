@@ -11,7 +11,7 @@ const MySubmitted = () => {
     const {user} = useContext(ContextProvider);
 
     useEffect(()=>{
-        axios.get('http://localhost:5000/my-assignment',{params:{email:user.email}})
+        axios.get(`http://localhost:5000/my-assignment?email=${user.email}`,{withCredentials:true})
         .then(res=>{
             setLoadedData(res.data);
             setIsLoading(false);

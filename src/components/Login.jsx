@@ -1,7 +1,7 @@
 import { useState } from "react";
 import useAuth from "../hooks/useAuth";
 import {useLocation , useNavigate} from 'react-router-dom';
-
+import toast, { Toaster } from 'react-hot-toast';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -17,7 +17,7 @@ const Login = () => {
        .then(result=>{
         
            if(result.user){
-            alert('login successfully!')
+            toast.success('login successfully!')
             location.state && navigate(location.state);
             
               
@@ -25,7 +25,7 @@ const Login = () => {
        })
        .catch(error=>{
         
-            alert(error.message);
+            toast.error(error.message);
        })
   };
 
@@ -35,13 +35,13 @@ const Login = () => {
         googleLogin()
         .then(result=>{
            if(result.user){
-            alert('sing in google')
+            toast.success('sing in google successfully')
             location.state && navigate(location.state);
             
            }
         })
         .catch(error=>{
-            alert(error.message)
+            toast.error(error.message)
         })
   }; 
 
@@ -93,7 +93,7 @@ const Login = () => {
           Continue with Google
         </button>
       </div>
-      
+      <Toaster></Toaster>
     </div>
   );
 };

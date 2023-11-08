@@ -2,6 +2,7 @@ import { useState } from "react";
 import useAuth from "../hooks/useAuth";
 import { updateProfile } from "firebase/auth";
 import { auth } from "../firebase.config";
+import toast, { Toaster } from 'react-hot-toast';
 
 const Registration = () => {
     const [name, setName] = useState('');
@@ -15,7 +16,7 @@ const Registration = () => {
 
 
         if(!/^(?=.*[A-Z])(?=.*\W).{6,}/.test(password)){
-          return alert('Invalid Password!!')
+          return toast.error('Invalid Password!!')
        }
 
 
@@ -27,16 +28,16 @@ const Registration = () => {
                   photoURL:photoURL,
                 })
                 .then(()=>{
-                   alert('user create')
+                   toast.success('user create successfully')
                    window.location.reload()
                 })
                 .then(error=>{
-                      alert(error.message)
+                      toast.error(error.message)
                 })
               }
          })
          .catch(error=>{
-            alert(error.message)
+            toast.error(error.message)
          })
       
     };
@@ -115,6 +116,7 @@ const Registration = () => {
           </button>
         </div>
         </form>
+        <Toaster></Toaster>
       </div>
     );
   };

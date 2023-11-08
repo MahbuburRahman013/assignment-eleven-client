@@ -1,5 +1,5 @@
 // import { useState } from "react";
-
+import toast, { Toaster } from 'react-hot-toast';
 import axios from "axios";
 import useAuth from "../hooks/useAuth";
 
@@ -25,7 +25,7 @@ const Modal = ({loadedData2}) => {
        axios.post('http://localhost:5000/submitted-assignment',{allData})
        .then(res=>{
         if(res.data.acknowledged){
-            alert('submitted complete')
+            toast.success('submitted complete')
         }
        })
 
@@ -78,7 +78,7 @@ const Modal = ({loadedData2}) => {
                     </div>
                 </div>
             </dialog>
-
+        <Toaster></Toaster>
 
         </div>
     );

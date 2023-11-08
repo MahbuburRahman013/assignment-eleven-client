@@ -4,6 +4,7 @@ import axios from 'axios'
 import AssignmentCard from "./AssignmentCard";
 import useAuth from "../hooks/useAuth";
 import '../index.css';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const AllAssignment = () => {
@@ -34,12 +35,12 @@ const AllAssignment = () => {
             .then(res => {
                 if (res.data.deletedCount > 0) {
                     const remaining = allAssignment.filter(assignment => assignment._id !== id);
-                    alert('delete assignment')
+                    toast.success('deleted assignment')
                     setAllAssignment(remaining)
                     setIsTrue(false)
                 }
                 else {
-                    alert('You are not able to delete')
+                    toast.error('You are not able to delete')
                 }
             })
     }
@@ -99,7 +100,7 @@ const AllAssignment = () => {
 
 
             <div className='flex justify-center items-center'>
-                <p>current Page: {currentPage}</p>
+                
                 <button className="btn-sm btn-primary btn-outline" onClick={handlePrevPage}>Prve</button>
                 {
                     arrOFPages.map(page => <button className={` btn ${page === currentPage ? 'selected' : ''}`}
@@ -115,7 +116,7 @@ const AllAssignment = () => {
                 <button className="btn-sm  btn-outline btn-primary" onClick={handleNextPage}>Next</button>
             </div>
 
-
+     <Toaster></Toaster>
 
         </div>
 

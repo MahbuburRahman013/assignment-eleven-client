@@ -3,6 +3,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import useAuth from "../hooks/useAuth";
 import axios from 'axios'
+import toast, { Toaster } from 'react-hot-toast';
 
 const CreateAssignment = () => {
     const [title, setTitle] = useState('');
@@ -16,10 +17,10 @@ const CreateAssignment = () => {
     const handleFormSubmit = (e) => {
         e.preventDefault();
         const assignment = {title,description,marks,thumbnailURL,difficulty,dueDate, user: user?.email};
-        axios.post('http://localhost:5000/assignment', {assignment})
+        axios.post('http://localhost:5000/assignment', {assignment}, {withCredentials:true})
         .then(res=> {
             if(res.data.acknowledged){
-                alert('create an assignment')
+               toast.success('created an assignment')
             }
         })
 
@@ -126,6 +127,7 @@ const CreateAssignment = () => {
                     </button>
                 </div>
             </form>
+            <Toaster></Toaster>
         </div>
         </div>
     );

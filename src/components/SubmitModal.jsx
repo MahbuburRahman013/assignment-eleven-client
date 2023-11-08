@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {useLoaderData} from 'react-router-dom'
+import toast, { Toaster } from 'react-hot-toast';
  
 
 const SubmitModal = () => {
@@ -17,7 +18,7 @@ const handleSubmit = e =>{
     axios.patch(`http://localhost:5000/marking-assignment/${_id}`, {status:'completed',givenMarks,feedback})
     .then(res=>{
         if(res.data){
-            alert('given number completed')
+            toast.success('given number completed')
         }
     })
 }
@@ -36,6 +37,7 @@ const handleSubmit = e =>{
                          <input className="btn btn-primary" type="submit" value="Submit" />
                            
                     </form>
+                    <Toaster></Toaster>
                    
         </div>
     );

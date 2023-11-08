@@ -1,8 +1,11 @@
+
 import { Link} from "react-router-dom";
+
 
 const AssignmentCard = ({ assignment, handleDeleteAssignment }) => {
 
     const { thumbnailURL, title, marks, difficulty, _id } = assignment;
+    
    
 
     return (

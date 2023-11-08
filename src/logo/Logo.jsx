@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { useContext } from "react";
 import { ContextProvider } from "../authProvider/AuthProvider";
+import toast, { Toaster } from 'react-hot-toast';
 
 
 
@@ -13,10 +14,10 @@ const Logo = () => {
         
             signOut(auth)
             .then(()=>{
-            alert('logOut successfully!')
+            toast.success('logout successfully!')
         })
         .catch(err=>{
-            alert(err)
+            toast.error(err)
         })
     }
 
@@ -50,6 +51,7 @@ const Logo = () => {
                     </div>
 
                 </div>
+                <Toaster></Toaster>
             </div>
 
         </div>
