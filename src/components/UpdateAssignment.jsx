@@ -27,7 +27,7 @@ const UpdateAssignment = () => {
         const updateInfo = { title, description, marks, thumbnailURL, difficulty, dueDate, user, _id }
         // console.log(updateInfo)
 
-        axios.put(`http://localhost:5000/update-assignment/${_id}`, { updateInfo })
+        axios.put(`https://server-side-orcin.vercel.app/update-assignment/${_id}`, { updateInfo })
             .then(res => {
                 if(res.data.modifiedCount > 0){
                     toast.success('update successfully!');

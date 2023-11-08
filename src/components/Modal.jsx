@@ -22,7 +22,7 @@ const Modal = ({loadedData2}) => {
         const note = form.note.value;
         const allData = {...loadedData2,file,note,submittedUser,submittedUserName, status:'submitted'};
         console.log(file)
-       axios.post('http://localhost:5000/submitted-assignment',{allData})
+       axios.post('https://server-side-orcin.vercel.app/submitted-assignment',{allData})
        .then(res=>{
         if(res.data.acknowledged){
             toast.success('submitted complete')

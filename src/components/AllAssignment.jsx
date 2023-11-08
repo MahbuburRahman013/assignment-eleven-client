@@ -21,7 +21,7 @@ const AllAssignment = () => {
 
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/allAssignment?page=${currentPage}&size=${perPage}`, { params: { query: difficulty } })
+        axios.get(`https://server-side-orcin.vercel.app/allAssignment?page=${currentPage}&size=${perPage}`, { params: { query: difficulty } })
             .then(res => {
                 setAllAssignment(res.data)
                 setIsTrue(false)
@@ -31,7 +31,7 @@ const AllAssignment = () => {
 
     const handleDeleteAssignment = id => {
 
-        axios.delete(`http://localhost:5000/delete-assignment/${id}`, { params: { query: user?.email } })
+        axios.delete(`https://server-side-orcin.vercel.app/delete-assignment/${id}`, { params: { query: user?.email } })
             .then(res => {
                 if (res.data.deletedCount > 0) {
                     const remaining = allAssignment.filter(assignment => assignment._id !== id);
@@ -47,7 +47,7 @@ const AllAssignment = () => {
 
 
     useEffect(()=>{
-        fetch('http://localhost:5000/assignmentCount')
+        fetch('https://server-side-orcin.vercel.app/assignmentCount')
         .then(res=> res.json())
         .then(data=> setResult(data.result))
     },[])

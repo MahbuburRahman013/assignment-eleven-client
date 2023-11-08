@@ -1,8 +1,9 @@
-# React + Vite
+# Project features:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- If the user clicks on my assignment, then the user can see the assignments.
+- If the user clicks on all assignments, then he can see all the assignments.
+- User can go to all routes from footer.
+- User can see responsive design on all devices.
+- If the password or email is wrong on the login page, it will show an error message.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh

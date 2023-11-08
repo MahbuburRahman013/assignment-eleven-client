@@ -11,7 +11,7 @@ const MySubmitted = () => {
     const {user} = useContext(ContextProvider);
 
     useEffect(()=>{
-        axios.get(`http://localhost:5000/my-assignment?email=${user.email}`,{withCredentials:true})
+        axios.get(`https://server-side-orcin.vercel.app/my-assignment?email=${user.email}`,{withCredentials:true})
         .then(res=>{
             setLoadedData(res.data);
             setIsLoading(false);

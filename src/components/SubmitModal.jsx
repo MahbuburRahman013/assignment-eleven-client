@@ -15,7 +15,7 @@ const handleSubmit = e =>{
     const givenMarks = form.number.value;
     const feedback = form.feedback.value;
 
-    axios.patch(`http://localhost:5000/marking-assignment/${_id}`, {status:'completed',givenMarks,feedback})
+    axios.patch(`https://server-side-orcin.vercel.app/marking-assignment/${_id}`, {status:'completed',givenMarks,feedback})
     .then(res=>{
         if(res.data){
             toast.success('given number completed')

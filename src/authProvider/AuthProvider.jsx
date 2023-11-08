@@ -36,12 +36,12 @@ const AuthProvider = ({children}) => {
              
             
              if(currentUser){
-                axios.post('http://localhost:5000/jwt', email , {withCredentials:true})
+                axios.post('https://server-side-orcin.vercel.app/jwt', email , {withCredentials:true})
                 .then(res=> {
                     console.log(res.data)
                 })
              }else{
-                  axios.post('http://localhost:5000/logout', email, {withCredentials: true})
+                  axios.post('https://server-side-orcin.vercel.app/logout', email, {withCredentials: true})
                   .then(res=>{
                       console.log(res.data)
                   })

@@ -17,7 +17,7 @@ const CreateAssignment = () => {
     const handleFormSubmit = (e) => {
         e.preventDefault();
         const assignment = {title,description,marks,thumbnailURL,difficulty,dueDate, user: user?.email};
-        axios.post('http://localhost:5000/assignment', {assignment}, {withCredentials:true})
+        axios.post('https://server-side-orcin.vercel.app/assignment', {assignment}, {withCredentials:true})
         .then(res=> {
             if(res.data.acknowledged){
                toast.success('created an assignment')

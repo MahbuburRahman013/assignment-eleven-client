@@ -43,12 +43,12 @@ const router = createBrowserRouter([
       {
         path: '/update-assignment/:id',
         element: <PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>,
-        loader: ({params})=> fetch(`http://localhost:5000/assignment/${params.id}`)
+        loader: ({params})=> fetch(`https://server-side-orcin.vercel.app/assignment/${params.id}`)
       },
       {
         path: '/assignment-details/:id',
         element: <PrivateRoute><DetailsAssignment></DetailsAssignment></PrivateRoute>,
-        loader:({params})=> fetch(`http://localhost:5000/assignment/${params.id}`)
+        loader:({params})=> fetch(`https://server-side-orcin.vercel.app/assignment/${params.id}`)
       },
       {
         path: '/submitted-assignment',
@@ -57,7 +57,7 @@ const router = createBrowserRouter([
       {
         path: '/givenMarks/:id',
         element: <SubmitModal></SubmitModal>,
-        loader: ({ params }) => fetch(`http://localhost:5000/modal-data/${params.id}`)
+        loader: ({ params }) => fetch(`https://server-side-orcin.vercel.app/modal-data/${params.id}`)
       },
       {
         path: '/my-assignment',
